@@ -7,11 +7,33 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "diff_view_style": "split",
   "ui_font_family": "JetBrains Mono",
   "buffer_font_family": "JetBrains Mono",
   "cursor_animation": { "enabled": true },
   "language_models": {
-    "openai_compatible": {},
+    "openai_compatible": {
+      "claude-opus-4.8": {
+        "api_url": "https://cleanapis.com/v1",
+        "available_models": [
+          {
+            "name": "claude-opus-4.5",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+              "max_tokens_parameter": false
+            }
+          }
+        ]
+      }
+    },
   },
   "lsp": {
     "vtsls": {
@@ -42,30 +64,51 @@
     "code_actions": true,
   },
   "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    },
+    "opencode": {
+      "default_config_options": {
+        "model": "opencode/big-pickle"
+      },
+      "type": "registry"
+    },
     "codex-acp": {
       "default_config_options": {
+        "model": "gpt-6.1-sol",
+        "reasoning_effort": "medium",
         "mode": "agent-full-access",
       },
       "type": "registry",
     },
   },
   "outline_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "right",
+    "dock": "left",
   },
   "git_panel": {
     "dock": "left",
   },
   "agent": {
-    "terminal_init_command": "agy",
+    "default_model": {
+      "provider": "claude-opus-4.8",
+      "model": "claude-opus-4.5",
+      "enable_thinking": false
+    },
+    "threads_sidebar": {
+      "position": "right"
+    },
+    "terminal_init_command": "",
     "single_file_review": true,
-    "sidebar_side": "right",
     "dock": "right",
     "model_parameters": [],
   },
-  "edit_predictions": { "mode": "subtle", "provider": "zed" },
+  "edit_predictions": { "ollama": {
+      "api_url": ""
+    },
+                        "mode": "subtle", "provider": "zed" },
   "project_panel": {
     "bold_folder_labels": false,
     "hide_root": false,
@@ -91,7 +134,8 @@
   "ui_font_size": 17,
   "buffer_font_size": 17.0,
   "agent_ui_font_size": 17,
-  "theme": "macOS Classic Dark",
+  "agent_buffer_font_size": 17,
+  "theme": "Snazzy Theme",
   "hidden_files": [".turbo", ".idea"],
-  // "format_on_save": "on",
+  "format_on_save": "modifications_if_available",
 }
