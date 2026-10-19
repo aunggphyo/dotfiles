@@ -11,30 +11,6 @@
   "ui_font_family": "JetBrains Mono",
   "buffer_font_family": "JetBrains Mono",
   "cursor_animation": { "enabled": true },
-  "language_models": {
-    "openai_compatible": {
-      "claude-opus-4.8": {
-        "api_url": "https://cleanapis.com/v1",
-        "available_models": [
-          {
-            "name": "claude-opus-4.5",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true,
-              "interleaved_reasoning": false,
-              "max_tokens_parameter": false
-            }
-          }
-        ]
-      }
-    },
-  },
   "lsp": {
     "vtsls": {
       "settings": {
@@ -65,13 +41,13 @@
   },
   "agent_servers": {
     "github-copilot-cli": {
-      "type": "registry"
+      "type": "registry",
     },
     "opencode": {
       "default_config_options": {
-        "model": "opencode/big-pickle"
+        "model": "opencode/big-pickle",
       },
-      "type": "registry"
+      "type": "registry",
     },
     "codex-acp": {
       "default_config_options": {
@@ -92,23 +68,14 @@
     "dock": "left",
   },
   "agent": {
-    "default_model": {
-      "provider": "claude-opus-4.8",
-      "model": "claude-opus-4.5",
-      "enable_thinking": false
-    },
     "threads_sidebar": {
-      "position": "right"
+      "position": "right",
     },
     "terminal_init_command": "",
     "single_file_review": true,
     "dock": "right",
     "model_parameters": [],
   },
-  "edit_predictions": { "ollama": {
-      "api_url": ""
-    },
-                        "mode": "subtle", "provider": "zed" },
   "project_panel": {
     "bold_folder_labels": false,
     "hide_root": false,
